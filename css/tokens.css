@@ -1,0 +1,64 @@
+/**
+ * VINYL ARCHIVE — DESIGN TOKENS
+ * 60-30-10 Color Architecture, 8pt Spacing Grid & Brutalist Typography
+ */
+
+:root {
+  /* 60% Dominant Base: Warm Editorial Newsprint */
+  --bg-canvas: #eae7df;
+  --bg-card: #f2efe7;
+  --bg-card-alt: #dedad0;
+  --bg-dark-plate: #111111;
+  --bg-dark-panel: #18191d;
+
+  /* 30% Structural Contrasts: Deep Graphite & Brutalist Borders */
+  --color-ink: #111111;
+  --color-ink-muted: #555555;
+  --color-ink-subtle: #888888;
+  --border-dark: #111111;
+  --border-dark-hairline: rgba(17, 17, 17, 0.2);
+  --border-light-hairline: rgba(255, 255, 255, 0.12);
+
+  /* 10% Accents: Y2K Cyber Iridescence & Acid Violet/Fuchsia */
+  --accent-fuchsia: #ff2a85;
+  --accent-violet: #8a2be2;
+  --accent-cyan: #00f0ff;
+  --accent-gold: #d4af37;
+  --accent-iridescent: linear-gradient(135deg, #ff007a 0%, #7928ca 50%, #00f0ff 100%);
+  --accent-gradient-glow: radial-gradient(circle, rgba(255, 42, 133, 0.4) 0%, rgba(138, 43, 226, 0.2) 45%, transparent 75%);
+
+  /* Typography Scales (The 3-Size Rule) */
+  --font-display: "Syne", "Space Grotesk", -apple-system, sans-serif;
+  --font-body: "Plus Jakarta Sans", -apple-system, sans-serif;
+  --font-mono: "Space Mono", "JetBrains Mono", monospace;
+
+  --text-hero: clamp(2.5rem, 6vw, 5.2rem);
+  --text-h1: clamp(2rem, 4vw, 3.2rem);
+  --text-h2: clamp(1.4rem, 2.5vw, 2rem);
+  --text-h3: clamp(1.1rem, 1.8vw, 1.35rem);
+  --text-body: 1rem;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
+
+  /* 8pt Modular Spacing Grid */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Shadows & Brutalist Offsets */
+  --shadow-offset: 4px 4px 0 #111111;
+  --shadow-offset-sm: 2px 2px 0 #111111;
+  --shadow-offset-hover: 6px 6px 0 #111111;
+
+  /* Layout Width */
+  --container-max: 1320px;
+  --transition-fast: 0.15s cubic-bezier(0.2, 0, 0, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}

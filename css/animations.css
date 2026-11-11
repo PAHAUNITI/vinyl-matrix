@@ -1,0 +1,93 @@
+/**
+ * VINYL ARCHIVE — ANIMATIONS & KINETIC MICRO-INTERACTIONS
+ * 60 FPS hardware accelerated rotation, ticker marquees & acid graphics.
+ */
+
+@keyframes tickerMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: tickerMarquee 24s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: 0 var(--space-6);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+/* Platter Continuous Spin (CSS Fallback / Accent) */
+@keyframes spinRpm33 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinRpm45 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Shimmer Iridescence Animation */
+@keyframes iridescentFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glow-shimmer {
+  background-size: 200% 200%;
+  animation: iridescentFlow 6s ease infinite;
+}
+
+/* Scratching visual feedback */
+.vinyl-disc.scratching {
+  filter: brightness(1.2);
+  transition: none !important;
+}
+
+/* Pulse indicator */
+@keyframes ledPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+}
+
+.power-led.active {
+  animation: ledPulse 2s infinite ease-in-out;
+}

@@ -1,0 +1,250 @@
+/**
+ * VINYL ARCHIVE — BRUTALIST GRID & WIREFRAME MATRIX
+ * Replicating the exact neo-brutalist / cyber-editorial wireframe layout from reference.
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ambient Paper Grain Noise Overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Ambient Mouse-Follow Glow Orb */
+.ambient-glow-orb {
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: var(--accent-gradient-glow);
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(48px);
+  opacity: 0.7;
+}
+
+/* Page Frame Container */
+.site-wrapper {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  border-left: 1px solid var(--border-dark);
+  border-right: 1px solid var(--border-dark);
+  background-color: var(--bg-canvas);
+  position: relative;
+  z-index: 2;
+}
+
+/* Header & Top Bar */
+.top-banner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+  background-color: var(--bg-card);
+}
+
+.brand-cell {
+  padding: var(--space-4) var(--space-6);
+  border-right: 1px solid var(--border-dark);
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: lowercase;
+  color: var(--color-ink);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.top-marquee-cell {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 var(--space-4);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+  white-space: nowrap;
+}
+
+/* Navigation Grid Bar */
+.nav-grid-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border-dark);
+  background-color: var(--bg-card-alt);
+}
+
+.nav-grid-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-ink);
+  text-decoration: none;
+  border-right: 1px solid var(--border-dark);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-grid-link:last-child {
+  border-right: none;
+}
+
+.nav-grid-link:hover {
+  background-color: var(--color-ink);
+  color: #ffffff;
+}
+
+.nav-grid-link .arrow {
+  font-size: 1.3rem;
+  transition: transform var(--transition-fast);
+}
+
+.nav-grid-link:hover .arrow {
+  transform: translate(3px, -3px);
+}
+
+/* Section Header Banners (Repeater Style: services services services) */
+.repeater-banner {
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+  background-color: var(--bg-card-alt);
+  padding: var(--space-3) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  overflow: hidden;
+  user-select: none;
+}
+
+.repeater-word {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+  font-weight: 900;
+  text-transform: lowercase;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.repeater-word.outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-ink);
+}
+
+.repeater-word.solid {
+  color: var(--color-ink);
+}
+
+/* Multi-Column Brutalist Matrix Grids */
+.matrix-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.matrix-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.matrix-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.matrix-cell {
+  padding: var(--space-6);
+  border-right: 1px solid var(--border-dark);
+  position: relative;
+}
+
+.matrix-cell:last-child {
+  border-right: none;
+}
+
+/* Badges & Micro-Labels */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--border-dark);
+  background-color: var(--bg-card);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-glow {
+  background: var(--accent-iridescent);
+  color: #ffffff;
+  border-color: #111;
+  box-shadow: 2px 2px 0 #111;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .top-banner {
+    grid-template-columns: 1fr;
+  }
+  .brand-cell {
+    border-right: none;
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .nav-grid-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+  .nav-grid-link:nth-child(2) {
+    border-right: none;
+  }
+  .nav-grid-link:nth-child(1),
+  .nav-grid-link:nth-child(2) {
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .matrix-grid-2,
+  .matrix-grid-3,
+  .matrix-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .matrix-cell {
+    border-right: none;
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .matrix-cell:last-child {
+    border-bottom: none;
+  }
+}

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VINYL MATRIX — Архитектура и История Винилового Звука</title>
+  <meta name="description" content="Интерактивный портал об истории виниловых пластинок, революции Long Play, рекорде Thriller Майкла Джексона, физике микроканавки и интерактивный проигрыватель вертушки на Web Audio API.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/brutalist-grid.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Ambient Paper Grain Overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Ambient Mouse-Follow Glow -->
+  <div id="mouse-ambient-glow" class="ambient-glow-orb" aria-hidden="true"></div>
+
+  <div class="site-wrapper">
+
+    <!-- Top Ticker Bar -->
+    <header class="top-banner">
+      <div class="brand-cell">
+        <a href="#" class="brand-logo">vinyl matrix</a>
+      </div>
+      <div class="top-marquee-cell">
+        <div class="marquee-track">
+          <span class="marquee-item">welcome to analog sound matrix archive</span>
+          <span class="marquee-item">✦ 33⅓ & 45 rpm audiophile standard ✦</span>
+          <span class="marquee-item">riaa equalization curve</span>
+          <span class="marquee-item">✦ physical vinyl revival 2007–2026 ✦</span>
+          <span class="marquee-item">welcome to analog sound matrix archive</span>
+          <span class="marquee-item">✦ 33⅓ & 45 rpm audiophile standard ✦</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Grid Bar -->
+    <nav class="nav-grid-bar" aria-label="Основная навигация">
+      <a href="#about" class="nav-grid-link">about us <span class="arrow">↗</span></a>
+      <a href="#turntable" class="nav-grid-link">turntable <span class="arrow">↗</span></a>
+      <a href="#history" class="nav-grid-link">history <span class="arrow">↗</span></a>
+      <a href="#contacts" class="nav-grid-link">contacts <span class="arrow">↗</span></a>
+    </nav>
+
+    <!-- HERO SECTION (Broadsheet 3-Column Grid) -->
+    <section class="hero-matrix" id="about">
+      <!-- Left Media Cell -->
+      <div class="hero-media-cell">
+        <div>
+          <span class="badge">EST. 1887 — 2026</span>
+          <h2 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; margin-top: 12px; line-height: 1.2;">
+            Аналоговая точность в эпоху цифры
+          </h2>
+        </div>
+
+        <div class="cyber-graphic-wrapper" style="margin: 20px 0;">
+          <img src="https://images.unsplash.com/photo-1539375665275-f9de415ef9ac?auto=format&fit=crop&w=800&q=80" alt="Макросъемка виниловой дорожки и иглы звукоснимателя" loading="lazy">
+        </div>
+
+        <div>
+          <p style="font-size: 0.85rem; color: var(--color-ink-muted);">
+            Физический носитель, где звук высечен в поливинилхлориде с микронной точностью.
+          </p>
+        </div>
+      </div>
+
+      <!-- Center Content Cell -->
+      <div class="hero-center-cell">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+            <span class="badge badge-glow">HISTORICAL CODEX</span>
+            <span class="starburst-icon">✦</span>
+          </div>
+
+          <h1 class="hero-display-title">
+            история & физика винила
+          </h1>
+
+          <p class="hero-lead-text">
+            От плоского цинкового диска Эмиля Берлинера 1887 года и тяжелого хрупкого шеллака 78 об/мин до микроканавочной революции LP Колумбии 1948 года и абсолютного мирового триумфа «Thriller» Майкла Джексона.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <a href="#turntable" class="btn-primary">
+            ЗАПУСТИТЬ ВЕРТУШКУ <span class="arrow">↗</span>
+          </a>
+          <a href="#history" class="btn-text">
+            ХРОНИКА СОБЫТИЙ <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Aside Cell -->
+      <div class="hero-aside-cell">
+        <div>
+          <span class="badge">ТЕХНИЧЕСКИЙ СТАНДАРТ</span>
+          <div style="font-family: var(--font-mono); font-size: 0.85rem; margin-top: 16px; display: flex; flex-direction: column; gap: 12px;">
+            <div>
+              <strong style="color: var(--color-ink);">СТАНДАРТ КАНАВКИ:</strong>
+              <div>Microgroove 25 мкм</div>
+            </div>
+            <div>
+              <strong style="color: var(--color-ink);">СИСТЕМА СТЕРЕО:</strong>
+              <div>Westrex 45°/45°</div>
+            </div>
+            <div>
+              <strong style="color: var(--color-ink);">ЭКВАЛИЗАЦИЯ:</strong>
+              <div>RIAA Curve 1954</div>
+            </div>
+            <div>
+              <strong style="color: var(--color-ink);">ЧАСТОТНЫЙ ДИАПАЗОН:</strong>
+              <div>20 Гц — 22 000 Гц</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="border-top: 1px dashed var(--border-dark); padding-top: 16px; margin-top: 24px;">
+          <span class="starburst-icon" style="font-size: 2.2rem;">✶</span>
+          <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-muted); margin-top: 8px;">
+            АНАЛОГОВЫЙ СИГНАЛ БЕЗ СТУПЕНЕК ДИСКРЕТИЗАЦИИ И СЖАТИЯ ДАННЫХ.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Repeater Banner: Turntable -->
+    <div class="repeater-banner">
+      <span class="repeater-word outline">turntable</span>
+      <span class="repeater-word solid">turntable</span>
+      <span class="repeater-word outline">turntable</span>
+    </div>
+
+    <!-- INTERACTIVE AUDIOPHILE TURNTABLE SECTION -->
+    <section class="turntable-section" id="turntable">
+      <div style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <span class="badge" style="background: #222; color: #00f0ff; border-color: #444;">INTERACTIVE WEB AUDIO LAB</span>
+          <h2 style="font-family: var(--font-display); font-size: var(--text-h1); font-weight: 900; margin-top: 8px; text-transform: lowercase;">
+            интерактивный проигрыватель винила
+          </h2>
+          <p style="font-family: var(--font-mono); font-size: var(--text-sm); color: #aaa; margin-top: 4px;">
+            Нажмите кнопку питания, опустите тонарм на дорожку (CUE DROP) или скретчите пластинку мышью.
+          </p>
+        </div>
+        <button id="global-mute-btn" class="deck-btn" style="border-color: #00f0ff; color: #00f0ff; padding: 10px 16px;">
+          MUTE AUDIO 🔇
+        </button>
+      </div>
+
+      <!-- Physical Turntable Deck -->
+      <div class="turntable-deck">
+        <!-- Turntable Platter Side -->
+        <div style="position: relative; display: flex; justify-content: center; align-items: center;">
+          <div class="platter-well" id="turntable-platter-well">
+            <!-- Rotating Vinyl Disc -->
+            <div class="vinyl-disc" id="vinyl-platter-disc" title="Кликайте и перетаскивайте для скретчинга пластинки!">
+              <div class="vinyl-center-label" id="vinyl-center-label">
+                <div class="center-spindle-hole"></div>
+                <div class="center-label-title" id="now-playing-title">Thriller</div>
+                <div class="center-label-artist" id="now-playing-artist">Michael Jackson</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Physical Tonearm Assembly -->
+          <div class="tonearm-assembly" id="tonearm-assembly" title="Кликните на тонарм для опускания/подъема иглы">
+            <div class="tonearm-counterweight"></div>
+            <div class="tonearm-base"></div>
+            <div class="tonearm-wand"></div>
+            <div class="tonearm-headshell">
+              <div class="tonearm-stylus"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Turntable Controls & Telemetry Side -->
+        <div class="turntable-panel">
+          <div>
+            <div class="panel-header">
+              <span class="panel-title">AUDIOPHILE DECK MK-II</span>
+              <div class="power-led" id="turntable-power-led" title="Индикатор питания"></div>
+            </div>
+
+            <!-- Status Readout -->
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #00f0ff; margin: 12px 0;" id="turntable-status-text">
+              STANDBY // MOTOR OFF
+            </div>
+
+            <!-- Now Playing Dossier Box -->
+            <div class="now-playing-box">
+              <div class="np-label">ТЕКУЩАЯ ПЛАСТИНКА:</div>
+              <div class="np-title" id="now-playing-track">Billie's Midnight Groove</div>
+              <div class="np-artist" id="now-playing-genre">Michael Jackson — Post-Disco / Funk</div>
+              <div class="np-meta-grid">
+                <div>ГОД: <span id="now-playing-year" style="color: #fff;">1982</span></div>
+                <div>ЛЕЙБЛ: <span id="now-playing-label" style="color: #fff;">Epic Records</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-Time Frequency Oscilloscope -->
+          <div>
+            <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.7rem; color: #888; margin-bottom: 4px;">
+              <span>RIAA SPECTRUM ANALYZER</span>
+              <span style="color: #00f0ff;">60 FPS SYNC</span>
+            </div>
+            <div class="visualizer-container">
+              <canvas id="visualizer-canvas"></canvas>
+            </div>
+          </div>
+
+          <!-- Tactile Deck Buttons -->
+          <div>
+            <div class="deck-controls-grid" style="margin-bottom: 12px;">
+              <button id="turntable-power-btn" class="deck-btn" aria-label="Включить мотор вертушки">
+                POWER [ON/OFF]
+              </button>
+              <button id="cue-lever-btn" class="deck-btn" aria-label="Опустить или поднять иглу тонарма">
+                CUE DROP [▼]
+              </button>
+            </div>
+
+            <div class="deck-controls-grid">
+              <button id="rpm-btn-33" class="deck-btn active" aria-label="Скорость 33⅓ оборота в минуту">
+                33⅓ RPM
+              </button>
+              <button id="rpm-btn-45" class="deck-btn" aria-label="Скорость 45 оборотов в минуту">
+                45 RPM
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CRATE RECORD SELECTOR (Rack of Records) -->
+    <section class="crate-selector-section">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-dark); padding-bottom: 12px;">
+        <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; text-transform: lowercase;">
+          ящик с пластинками // выберите альбом для проигрывания:
+        </h3>
+        <span class="badge">4 КУЛЬТОВЫХ РЕЛИЗА</span>
+      </div>
+      <div class="crate-grid" id="crate-selector-grid">
+        <!-- Rendered dynamically by ui-interactions.js -->
+      </div>
+    </section>
+
+    <!-- Repeater Banner: History -->
+    <div class="repeater-banner" id="history">
+      <span class="repeater-word outline">history</span>
+      <span class="repeater-word solid">history</span>
+      <span class="repeater-word outline">history</span>
+    </div>
+
+    <!-- TIMELINE & HISTORICAL CHRONOLOGY -->
+    <section style="padding: var(--space-8); border-bottom: 1px solid var(--border-dark);">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 32px;">
+        <div>
+          <span class="badge">1887 — 2026 ХРОНОЛОГИЯ</span>
+          <h2 style="font-family: var(--font-display); font-size: var(--text-h1); font-weight: 900; margin-top: 8px; text-transform: lowercase;">
+            эволюция виниловой звукозаписи
+          </h2>
+          <p style="color: var(--color-ink-muted); max-width: 650px; margin-top: 4px;">
+            От тяжелых дисков из смолы насекомых до микроканавочного стандарта Long Play и современного ренессанса.
+          </p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="badge era-filter-btn active" data-filter="all" style="cursor: pointer;">ВСЕ ЭПОХИ</button>
+          <button class="badge era-filter-btn" data-filter="foundation" style="cursor: pointer;">1887 ИСТОКИ</button>
+          <button class="badge era-filter-btn" data-filter="historic" style="cursor: pointer;">78 RPM ШЕЛЛАК</button>
+          <button class="badge era-filter-btn" data-filter="vinyl" style="cursor: pointer;">1948 РОЖДЕНИЕ LP</button>
+          <button class="badge era-filter-btn" data-filter="format" style="cursor: pointer;">ВОЙНА СКОРОСТЕЙ</button>
+          <button class="badge era-filter-btn" data-filter="renaissance" style="cursor: pointer;">РЕНЕССАНС</button>
+        </div>
+      </div>
+
+      <!-- Milestone Cards Grid -->
+      <div class="matrix-grid-3" id="timeline-grid" style="border: 1px solid var(--border-dark);">
+        <!-- Rendered dynamically by ui-interactions.js -->
+      </div>
+    </section>
+
+    <!-- Repeater Banner: Pioneers -->
+    <div class="repeater-banner">
+      <span class="repeater-word outline">pioneers</span>
+      <span class="repeater-word solid">pioneers</span>
+      <span class="repeater-word outline">pioneers</span>
+    </div>
+
+    <!-- PIONEERS & POPULARIZERS SECTION -->
+    <section style="padding: var(--space-8); border-bottom: 1px solid var(--border-dark); background-color: var(--bg-card);">
+      <div style="margin-bottom: 32px;">
+        <span class="badge">ГЕНИИ ЗВУКОЗАПИСИ</span>
+        <h2 style="font-family: var(--font-display); font-size: var(--text-h1); font-weight: 900; margin-top: 8px; text-transform: lowercase;">
+          кто популяризировал и создал формат
+        </h2>
+        <p style="color: var(--color-ink-muted); max-width: 650px; margin-top: 4px;">
+          Люди, благодаря которым музыка вырвалась из концертных залов и зазвучала в каждом доме планеты.
+        </p>
+      </div>
+
+      <div class="matrix-grid-2" id="pioneers-grid" style="border: 1px solid var(--border-dark);">
+        <!-- Rendered dynamically by ui-interactions.js -->
+      </div>
+    </section>
+
+    <!-- Repeater Banner: Best-Seller -->
+    <div class="repeater-banner">
+      <span class="repeater-word outline">best-seller</span>
+      <span class="repeater-word solid">best-seller</span>
+      <span class="repeater-word outline">best-seller</span>
+    </div>
+
+    <!-- THE HOLY GRAIL: THRILLER & RECORD HOLDERS -->
+    <section class="spotlight-card">
+      <div class="spotlight-content">
+        <span class="sales-badge">АБСОЛЮТНЫЙ №1 В МИРЕ ЗА ВСЮ ИСТОРИЮ МУЗЫКИ</span>
+        <h2 style="font-family: var(--font-display); font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 900; line-height: 1; margin: 16px 0; text-transform: lowercase;">
+          michael jackson — thriller (1982)
+        </h2>
+
+        <div class="record-sales-stat">
+          70,000,000+
+        </div>
+        <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--color-ink-muted); margin-bottom: 24px;">
+          СЕРТИФИЦИРОВАННЫХ КОПИЙ (ПО ОЦЕНКАМ ИНДУСТРИИ — БОЛЕЕ 100 000 000). РЕКОРД КНИГИ ГИННЕССА.
+        </p>
+
+        <p style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 20px;">
+          Выпущенный 30 ноября 1982 года лейблом Epic Records, <strong>Thriller</strong> навсегда изменил звукозаписывающую индустрию. Совместная работа Майкла Джексона, гениального продюсера Куинси Джонса и инженера звукозаписи Брюса Сведиена задала золотой стандарт мастеринга виниловых пластинок.
+        </p>
+
+        <div style="background-color: var(--bg-card-alt); border: 1px solid var(--border-dark); padding: 16px; font-family: var(--font-mono); font-size: 0.85rem;">
+          <strong style="color: var(--color-ink);">ТЕХНИЧЕСКИЙ СЕКРЕТ ЗВУЧАНИЯ:</strong>
+          <p style="margin-top: 6px; color: var(--color-ink-muted);">
+            Технология <em>Acusonic Recording Process</em>: синхронизация двух 24-дорожечных аналоговых магнитофонов Studer с минимальным использованием эквализации, что дало непревзойденный объем, глубокий транзиентный панч бас-барабана и прозрачность вокала.
+          </p>
+        </div>
+      </div>
+
+      <div class="spotlight-sidebar">
+        <div>
+          <span class="badge">ЗАЛ СЛАВЫ БЕСТСЕЛЛЕРОВ LP</span>
+          <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 16px; font-family: var(--font-mono); font-size: 0.85rem;">
+            <div style="border-bottom: 1px solid var(--border-dark-hairline); padding-bottom: 10px;">
+              <strong style="font-family: var(--font-display); font-size: 1.1rem; color: var(--color-ink);">Pink Floyd — The Dark Side of the Moon (1973)</strong>
+              <div>45+ млн копий. Рекордсмен чарта Billboard 200 — более 950 недель (18 лет).</div>
+            </div>
+            <div style="border-bottom: 1px solid var(--border-dark-hairline); padding-bottom: 10px;">
+              <strong style="font-family: var(--font-display); font-size: 1.1rem; color: var(--color-ink);">Fleetwood Mac — Rumours (1977)</strong>
+              <div>40+ млн копий. Альбом года Грэмми, шедевр акустического аналогового сведения.</div>
+            </div>
+            <div>
+              <strong style="font-family: var(--font-display); font-size: 1.1rem; color: var(--color-ink);">Miles Davis — Kind of Blue (1959)</strong>
+              <div>5+ млн копий. Самый продаваемый джазовый винил всех времен.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px dashed var(--border-dark);">
+          <span class="starburst-icon">✦</span>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; margin-top: 8px;">
+            В 2022 году винил обошел компакт-диски (CD) по выручке впервые за 35 лет.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Repeater Banner: Mechanics -->
+    <div class="repeater-banner">
+      <span class="repeater-word outline">mechanics</span>
+      <span class="repeater-word solid">mechanics</span>
+      <span class="repeater-word outline">mechanics</span>
+    </div>
+
+    <!-- GROOVE PHYSICS & COLLECTOR'S GRADING -->
+    <section class="matrix-grid-2">
+      <!-- Left: Groove Physics -->
+      <div class="matrix-cell">
+        <span class="badge">ФИЗИКА КАНАВКИ & RIAA</span>
+        <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; margin: 12px 0; text-transform: lowercase;">
+          как игла считывает звук с пластинки
+        </h3>
+        <p style="color: var(--color-ink-muted); margin-bottom: 16px;">
+          Ширина канавки микрогрува — всего <strong>25–50 микрон</strong> (тоньше человеческого волоса). В этой крошечной борозде алмазная игла считывает пространственный стереозвук:
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 12px; font-family: var(--font-mono); font-size: 0.85rem;">
+          <div style="border-left: 3px solid var(--accent-fuchsia); padding-left: 12px;">
+            <strong>ЛЕВЫЙ КАНАЛ (45° внутрь):</strong>
+            <div>Модулирует левую стенку канавки, сдвигая иглу вверх и влево.</div>
+          </div>
+          <div style="border-left: 3px solid var(--accent-cyan); padding-left: 12px;">
+            <strong>ПРАВЫЙ КАНАЛ (45° наружу):</strong>
+            <div>Модулирует правую стенку канавки, сдвигая иглу вверх и вправо.</div>
+          </div>
+          <div style="border-left: 3px solid var(--color-ink); padding-left: 12px;">
+            <strong>RIAA КРИВАЯ ПРЕДЫСКАЖЕНИЙ:</strong>
+            <div>Бас при записи ослабляется на 18 дБ (чтобы игла не вылетала из канавки), а фонокорректор при воспроизведении восстанавливает его в исходное состояние.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Collector's Grading Calculator -->
+      <div class="matrix-cell" style="background-color: var(--bg-card);">
+        <span class="badge">ГИД КОЛЛЕКЦИОНЕРА</span>
+        <h3 style="font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; margin: 12px 0; text-transform: lowercase;">
+          шкала состояния goldmine standard
+        </h3>
+        <p style="color: var(--color-ink-muted); font-size: 0.95rem;">
+          Выберите категорию состояния, чтобы рассчитать сохранение аудиофильского качества и рыночной стоимости:
+        </p>
+
+        <div class="grading-calculator-box">
+          <label for="grading-select" style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 8px;">
+            ВЫБЕРИТЕ СОСТОЯНИЕ ДИСКА:
+          </label>
+          <select id="grading-select" class="custom-select">
+            <option value="0">Mint (M) — Идеальное / Новое</option>
+            <option value="1" selected>Near Mint (NM) — Почти идеальное</option>
+            <option value="2">Very Good Plus (VG+) — Отличное коллекционное</option>
+            <option value="3">Very Good (VG) — Хорошее рабочее</option>
+            <option value="4">Good / Poor (G/P) — Коллекционный остаток</option>
+          </select>
+
+          <div style="margin-top: 16px;">
+            <div id="grade-output-title" style="font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; color: var(--color-ink);">
+              NM — Почти идеал
+            </div>
+            <p id="grade-output-desc" style="font-size: 0.85rem; color: var(--color-ink-muted); margin: 6px 0 16px 0;">
+              Диск без царапин и потертостей, конверт без заломов и пожелтения.
+            </p>
+
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; display: flex; justify-content: space-between;">
+              <span>ЧИСТОТА АНАЛОГОВОГО ЗВУКА:</span>
+              <span>ФИДЕЛИТИ</span>
+            </div>
+            <div class="bar-track">
+              <div id="grade-fidelity-bar" class="bar-fill" style="width: 95%;"></div>
+            </div>
+
+            <div style="font-family: var(--font-mono); font-size: 0.75rem; display: flex; justify-content: space-between; margin-top: 8px;">
+              <span>СОХРАНЕНИЕ РЫНОЧНОЙ СТОИМОСТИ:</span>
+              <span>ЦЕННОСТЬ</span>
+            </div>
+            <div class="bar-track">
+              <div id="grade-value-bar" class="bar-fill" style="width: 85%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Repeater Banner: Contacts -->
+    <div class="repeater-banner" id="contacts">
+      <span class="repeater-word outline">contacts</span>
+      <span class="repeater-word solid">contacts</span>
+      <span class="repeater-word outline">contacts</span>
+    </div>
+
+    <!-- CONTACTS & ARCHIVE INQUIRY SECTION (Matches Reference Form 1:1) -->
+    <section class="matrix-grid-2">
+      <!-- Left Cell: Archival Info -->
+      <div class="matrix-cell">
+        <span class="badge">СВЯЗЬ С АРХИВОМ</span>
+        <h3 style="font-family: var(--font-display); font-size: 2rem; font-weight: 900; margin: 16px 0; text-transform: lowercase;">
+          мы знаем толк в виниле
+        </h3>
+        <p style="color: var(--color-ink-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 24px;">
+          Ищете редкий первопресс 1969 года, хотите провести экспертную оценку матрицы или восстановить коллекционный шеллак? Наша лаборатория ответит на любой технический вопрос.
+        </p>
+
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="width: 64px; height: 64px; border-radius: 50%; border: 1px solid var(--border-dark); background: radial-gradient(circle, #222, #000); display: flex; align-items: center; justify-content: center;">
+            <span style="font-size: 1.8rem; color: #fff;">✦</span>
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem;">VINYL AUDIOPHILE LAB</div>
+            <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ink-muted);">МОСКВА / САНКТ-ПЕТЕРБУРГ / СЕТЬ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Cell: Form with Brutalist Inputs from Reference -->
+      <div class="matrix-cell" style="background-color: var(--bg-card);">
+        <h4 style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; margin-bottom: 16px; text-transform: lowercase;">
+          Let's talk
+        </h4>
+
+        <form id="contact-form" onsubmit="event.preventDefault(); alert('Спасибо! Запрос принят в архивно-техническую лабораторию.');">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <div>
+              <label style="font-family: var(--font-mono); font-size: 0.75rem; display: block; margin-bottom: 4px;">Имя</label>
+              <input type="text" placeholder="John" required style="width: 100%; padding: 12px; border: 1px solid var(--border-dark); background-color: var(--bg-canvas); font-family: var(--font-body); outline: none;">
+            </div>
+            <div>
+              <label style="font-family: var(--font-mono); font-size: 0.75rem; display: block; margin-bottom: 4px;">Email</label>
+              <input type="email" placeholder="vinyl@matrix.audio" required style="width: 100%; padding: 12px; border: 1px solid var(--border-dark); background-color: var(--bg-canvas); font-family: var(--font-body); outline: none;">
+            </div>
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <label style="font-family: var(--font-mono); font-size: 0.75rem; display: block; margin-bottom: 4px;">Тема запроса</label>
+            <input type="text" placeholder="Первопресс Thriller / Экспертиза матрицы" style="width: 100%; padding: 12px; border: 1px solid var(--border-dark); background-color: var(--bg-canvas); font-family: var(--font-body); outline: none;">
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; margin-top: 8px;">
+            SUBMIT ЗАПРОС <span class="arrow">↗</span>
+          </button>
+        </form>
+
+        <!-- Social Media Icons Row -->
+        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-dark);">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; margin-bottom: 10px;">FOLLOW US:</div>
+          <div style="display: flex; gap: 12px;">
+            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="badge" style="text-decoration: none; color: inherit; padding: 6px 12px;">TELEGRAM ↗</a>
+            <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="badge" style="text-decoration: none; color: inherit; padding: 6px 12px;">VK AUDIO ↗</a>
+            <a href="https://reddit.com/r/vinyl" target="_blank" rel="noopener noreferrer" class="badge" style="text-decoration: none; color: inherit; padding: 6px 12px;">R/VINYL ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER (Matches Reference broadsheet bottom grid) -->
+    <footer style="border-top: 1px solid var(--border-dark); background-color: var(--bg-card-alt);">
+      <div class="matrix-grid-3">
+        <div class="matrix-cell">
+          <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; margin-bottom: 8px;">
+            about us ↗
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ink-muted); line-height: 1.8;">
+            <div>our history</div>
+            <div>audio engineering</div>
+            <div>audiophile deck mk-ii</div>
+          </div>
+        </div>
+
+        <div class="matrix-cell">
+          <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; margin-bottom: 8px;">
+            standards ↗
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ink-muted); line-height: 1.8;">
+            <div>33⅓ & 45 rpm</div>
+            <div>westrex 45/45 stereo</div>
+            <div>goldmine grading</div>
+          </div>
+        </div>
+
+        <div class="matrix-cell">
+          <div style="font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; margin-bottom: 8px;">
+            contacts ↗
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-ink-muted); line-height: 1.8;">
+            <div>contact@vinyl-matrix.audio</div>
+            <div>press@vinyl-matrix.audio</div>
+            <div>+7 (495) 820-33-45</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding: var(--space-4) var(--space-6); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-ink-muted); border-top: 1px solid var(--border-dark); flex-wrap: wrap; gap: 8px;">
+        <div>Copyright © 2026 Vinyl Sound Matrix Portal. All rights reserved.</div>
+        <div>Designed by Senior Lead Architect & UI/UX Designer.</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- BRUTALIST DETAIL READER MODAL -->
+  <div id="detail-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-window">
+      <button id="modal-close-btn" class="modal-close-btn" aria-label="Закрыть модальное окно">×</button>
+      <span id="modal-badge" class="badge">HISTORICAL DOSSIER</span>
+      <h3 id="modal-title" style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 900; margin: 12px 0 4px 0;"></h3>
+      <div id="modal-subtitle" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-fuchsia);"></div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data/vinyl-data.js"></script>
+  <script src="js/audio/vinyl-engine.js"></script>
+  <script src="js/components/turntable.js"></script>
+  <script src="js/components/visualizer.js"></script>
+  <script src="js/components/ui-interactions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
