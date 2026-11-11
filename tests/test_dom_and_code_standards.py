@@ -2,7 +2,7 @@ import os
 import re
 import unittest
 
-PROJECT_DIR = r"C:\Users\paha2\.gemini\antigravity\scratch\vinyl_archive_portal"
+PROJECT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 class TestDomAndCodeStandards(unittest.TestCase):
     def test_html_dom_elements_exist(self):

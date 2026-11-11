@@ -1,12 +1,14 @@
 import json
+import os
 import re
 import unittest
 import math
 
 class TestVinylDataContracts(unittest.TestCase):
     def setUp(self):
-        # We will parse vinyl-data.js to verify it exports valid JSON structure
-        with open(r"C:\Users\paha2\.gemini\antigravity\scratch\vinyl_archive_portal\js\data\vinyl-data.js", "r", encoding="utf-8") as f:
+        project_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        js_path = os.path.join(project_dir, "js", "data", "vinyl-data.js")
+        with open(js_path, "r", encoding="utf-8") as f:
             content = f.read()
         
         # Extract the JSON payload from the JS file

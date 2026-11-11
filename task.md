@@ -1,7 +1,7 @@
 # VINYL ARCHIVE & SOUND MATRIX — TASK CHECKLIST
 
 ## Phase 1: Foundation & Data Architecture (SSOT)
-- [x] Create project structure at `C:\Users\paha2\.gemini\antigravity\scratch\vinyl_archive_portal`
+- [x] Create project structure at `vinyl_archive_portal/`
 - [x] Implement `task.md` tracking
 - [x] Define Single Source of Truth (`js/data/vinyl-data.js`):
   - Timeline & History (Berliner 1887, Shellac 78 RPM, Goldmark & Columbia 1948 LP, Format War, Golden Era, Revival)
